@@ -1,11 +1,9 @@
-import { EditorState, Transaction } from "prosemirror-state"
+import { EditorState } from "prosemirror-state"
 import { EditorView } from "prosemirror-view"
-import { Schema, Node, DOMParser as PmParser, DOMSerializer } from "prosemirror-model"
+import { Schema, DOMParser as PmParser, DOMSerializer } from "prosemirror-model"
 import { schema } from "prosemirror-schema-basic"
 import { addListNodes } from "prosemirror-schema-list"
 import { exampleSetup } from "prosemirror-example-setup"
-import { JSXElement, onMount } from "solid-js"
-import { Step } from "prosemirror-transform"
 import { history } from 'prosemirror-history'
 import './pm.css'
 import { lintPlugin } from "./lint"

@@ -20,7 +20,7 @@ type SearchData = {
 }
 
 export const pluginKey = new PluginKey<SearchData>('search-replace2');
-function getSearch(editorState: EditorState) {
+export function getSearch(editorState: EditorState) {
   return pluginKey.getState(editorState);
 }
 class Match {
@@ -80,7 +80,7 @@ function lint(doc: Node, sd: SearchData) {
   let lastHeadLevel: number | null = null
 
   // For each node in the document
-  doc.descendants((node: Node, pos: number, parent: Node | null) => {
+  doc.descendants((node: Node, pos: number) => {
     if (node.isText) {
       // add search 
       const sr = search(node.text ?? "", sd)
@@ -207,6 +207,7 @@ export function lintPlugin() {
               .scrollIntoView())
           return true
         }
+        return false
       },
       handleDoubleClick(view, _, event) {
         const el = event.target as HTMLElement
@@ -219,6 +220,7 @@ export function lintPlugin() {
             return true
           }
         }
+        return false
       }
     }
   })

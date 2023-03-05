@@ -1,4 +1,4 @@
-import { createSignal, createEffect, JSXElement, onMount, Component } from 'solid-js'
+import { createEffect, JSXElement, onMount } from 'solid-js'
 import { render } from 'solid-js/web'
 import { Icon } from 'solid-heroicons'
 import { xMark, check } from 'solid-heroicons/solid'
@@ -6,9 +6,8 @@ import './index.css'
 
 import { Editor } from './editor'
 import { html2md, md2html } from './md'
-import { search, setReplace, setSearch, setTitle } from './state'
+import { search, setSearch, setTitle } from './state'
 import { searchCommand } from './lint'
-import { EditorView } from 'prosemirror-view'
 
 const ed = new Editor
 let original = ""
